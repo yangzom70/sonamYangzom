@@ -707,6 +707,50 @@ section,
     min-height: calc(100vh - 68px);
   }
 }
+.circular-progress {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: conic-gradient(#e8e8e8 0%, #e8e8e8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+  transition: background 1s ease-in-out;
+}
+
+.circular-progress::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.circular-progress .lang-name,
+.circular-progress .lang-val {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.circular-progress .lang-name {
+  top: 30%;
+  font-size: 0.9rem;
+}
+
+.circular-progress .lang-val {
+  bottom: 30%;
+  font-size: 1rem;
+  color: var(--accent-color);
+}
 
 .hero img {
   position: absolute;
@@ -716,6 +760,31 @@ section,
   height: 100%;
   object-fit: cover;
   z-index: 1;
+  background: #e8e8e6;
+}
+@media (max-width: 768px) {
+  .hero {
+    background: #e8e8e6;
+    overflow: hidden;
+    text-align: center;
+    align-items: flex-end !important;
+    /* Ensure the image doesn't overflow */
+  }
+  .hero .container .row .col-lg-8 p,
+  .hero .container .row .col-lg-8 h3 {
+    color: #fff;
+    width: 100% !important;
+  }
+  .hero .title-description {
+    background: #30303021;
+    border-radius: 5px;
+  }
+  .hero img {
+    width: 150%;
+    height: 100%;
+    object-fit: cover; /* Cover the container */
+    object-position: right; /* Show right side of the image */
+  }
 }
 
 .hero .container {
@@ -727,7 +796,21 @@ section,
   margin: 0;
   font-size: 48px;
   font-weight: 700;
+  line-height: 48px;
   color: var(--accent-color);
+}
+.hero h3 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 60px;
+}
+.hero .container .row .col-lg-8 p {
+  font-size: 18px;
+  width: 90%;
+}
+
+.hero .focus {
+  /* color: var(--accent-color); */
 }
 
 .hero p {
